@@ -1,0 +1,100 @@
+from django.db import models
+
+
+class Quote(models.Model):
+	MATERIAL = (
+		('', 'Select One'),
+		('', 'METALS'),
+		('Aluminum 2024', 'Aluminum 2024'),
+		('Aluminum 5052', 'Aluminum 5052'),
+		('Aluminum 6061', 'Aluminum 6061'),
+		('Aluminum 6063', 'Aluminum 6063'),
+		('Aluminum 6351', 'Aluminum 6351'),
+		('Aluminum 7075', 'Aluminum 7075'),
+		('Brass 260', 'Brass 260'),
+		('Brass 360', 'Brass 360'),
+		('Copper 101', 'Copper 101'),
+		('Copper 110', 'Copper 110'),
+		('Stainless Steel 301', 'Stainless Steel 301'),
+		('Stainless Steel 303', 'Stainless Steel 303'),
+		('Stainless Steel 304', 'Stainless Steel 304'),
+		('Stainless Steel 316', 'Stainless Steel 316'),
+		('Stainless Steel 410', 'Stainless Steel 401'),
+		('Steel 1008/1018', 'Steel 1008/1018'),
+		('Steel 1095', 'Steel 1095'),
+		('Steel 12L14', 'Steel 12L14'),
+		('Steel 4130', 'Steel 4130'),
+		('Steel 4140', 'Steel 4140'),
+		('Steel A36', 'Steel A36'),
+		('Steel D2', 'Steel D2'),
+		('Steel O1', 'Steel O1'),
+		('Titanium Grade 2', 'Titanium Grade 2'),
+		('', 'SYNTHETICS'),
+		('ABS', 'ABS'),
+		('Acetal', 'Acetal'),
+		('Acrylic', 'Acrylic'),
+		('Carbon Fiber', 'Carbon Fiber'),
+		('NRB Nitrile', 'NRB Nitrile'),
+		('Neoprene', 'Neoprene'),
+		('Nylon', 'Nylon'),
+		('PTFE', 'PTFE'),
+		('PVC', 'PVC'),
+		('Polycarbonate', 'Polycarbonate'),
+		('Polyethylene', 'Polyethylene'),
+		('Polypropylene', 'Polypropylene'),
+		('Polystyrene', 'Polystyrene'),
+		('Silicone', 'Silicone'),
+		('', 'INJECTION MOLDING'),
+		('ABS', 'ABS'),
+		('Acetal', 'Acetal'),
+		('Nylon', 'Nylon'),
+		('PVC', 'PVC'),
+		('Polycarbonate', 'Polycarbonate'),
+		('Polypropylene', 'Polypropylene'),
+		('Polystyrene', 'Polystyrene'),
+		('', 'COMPRESSION MOLDING'),
+		('NRB Nitrile', 'NRB Nitrile'),
+		('Neoprene', 'Neoprene'),
+		('Silicone', 'Silicone'),
+		('', '3D PRINTING'),
+		('Nylon', 'Nylon'),
+	)
+	material = models.CharField(max_length=25, choices=MATERIAL)
+
+	FINISHES = (
+		('', 'Select One'),
+		('', 'MECHANICAL'),
+		('Buff Polishing', 'Buff Polishing'),
+		('Vibratory Polishing', 'Vibratory Polishing'),
+		('Brushing', 'Brushing'),
+		('Blasting', 'Blasting'),
+		('Laser Marking', 'Laser Marking'),
+		('', 'ELECTROPLATE'),
+		('Copper', 'Copper'),
+		('Nickel - Electroless', 'Nickel - Electroless'),
+		('Nickel - Bright',  'Nickel - Bright'),
+		('Zinc', 'Zinc'),
+		('', 'POWDER COAT'),
+		('Gloss', 'Gloss'),
+		('Matte', 'Matte'),
+		('Metallic', 'Metallic'),
+		('Textured', 'Textured'),
+		('', 'CHEMICAL FILM'),
+		('Black Oxide', 'Black Oxide'),
+		('Passivate', 'Passivate'),
+		('Alodine - Clear', 'Alodine - Clear'),
+		('Alodine - Yellow', 'Alodine - Yellow'),
+		('', 'ANODIZING'),
+		('Hardcoat - Non Dyed', 'Hardcoat - Non Dyed'),
+		('Hardcoat - Black', 'Hardcoat - Black'),
+		('Standard', 'Standard'),
+	)
+	finishes = models.CharField(max_length=15, choices=FINISHES)
+	quantity = models.PositiveSmallIntegerField()
+	name = models.CharField(max_length=100)
+	contact_no = models.CharField(max_length=11)
+	emailid = models.EmailField(max_length=50)
+
+	def __str__(self):
+		return self.name
+
